@@ -1,9 +1,15 @@
 using UnityEngine;
 
-public class Cube : MonoBehaviour
+public class Cube : MonoBehaviour, IWalking
 {
-    private void Start()
+    public void Start()
     {
-        Debug.Log("Start");
+        InvokeRepeating(nameof(Walk), 2F, 2F);
+    }
+
+    public void Walk()
+    {
+        print("Cube.Walk");
+        transform.position = Vector3.up * 1;
     }
 }
